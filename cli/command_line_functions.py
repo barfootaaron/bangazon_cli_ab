@@ -318,3 +318,30 @@ def product_popularity_cli():
 
 
 
+def add_customer_product_cli():
+    """
+    purpose: allow user to add a product and assign to active customer_id
+    author: Aaron Barfoot
+    args: n/a
+    returns: n/a
+    helpers: get_active_customer, add_customer_product
+    """
+    active_customer = get_active_customer()
+
+    if active_customer == None:
+        print('You must select a customer to activate')
+        activate_a_customer_cli()
+
+    product_name = input('Enter name of product:\n> ')
+    product_price = input('Enter product price:\n> ')
+    customer_id = active_customer
+    if len(product_name) < 1 or len(product_price) < 1:
+        print("Please valid information.")
+        pass
+    if len(product_name) > 1 and len(product_price) > 1:
+        add_customer_product(product_name, product_price, customer_id)
+
+
+
+
+

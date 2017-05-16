@@ -27,7 +27,10 @@ def build_menu():
     print('4. Add product to shopping cart')
     print('5. Complete an order')
     print('6. See product popularity')
-    print('7. Leave Bangazon!')
+    print('7. Add customer product')
+    # print('8. View current order')
+    print('9. Leave Bangazon!')
+
 
 def start_program_menu():
     """
@@ -58,6 +61,12 @@ def start_program_menu():
         product_popularity_cli()
 
     if choice == '7':
+        add_customer_product_cli()
+
+    # if choice == '8':
+    #     _cli()        
+
+    if choice == '9':
         active_customer = get_active_customer()
         deactivate_customer(active_customer)
         quit()

@@ -20,3 +20,6 @@ class TestSweet(unittest.TestCase):
     def test_user_can_see_product_popularity(self):
         top_products = admintasks.read_top_three_products()
         self.assertIn('Coffee', top_products[0])
+
+    def test_user_can_add_product(self):
+        product = admintasks.add_product()    

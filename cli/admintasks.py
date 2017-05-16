@@ -322,3 +322,25 @@ def read_top_three_products():
 
         top_three = c.fetchall()
         return top_three
+
+def add_customer_product(product_name, product_price, customer_id):
+    """
+    purpose: Adds a new product in database and assign to active user
+    author: Aaron Barfoot
+    args:
+    ----------------------
+      product_name -- (text) Name of product
+      product_price -- (integer) Price of product
+      customer_id -- (integer) Customer ID of customer that added product
+    ----------------------
+    returns: n/a
+    """
+    with sqlite3.connect('../db.db') as conn:
+        c = conn.cursor()
+
+        c.execute("INSERT INTO Product VALUES (?, ?, ?, ?)",
+            (None, product_name, product_price, customer_id))
+
+        conn.commit()
+
+
